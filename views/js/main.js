@@ -437,7 +437,7 @@ var resizePizzas = function(size) {
     }
     // Use one querySelectorAll and get rid of determineDx
     var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
-    for (var i = 0; i < randomPizzas; i++) {
+    for (var i = 0; i < randomPizzas.length; i++) {
       randomPizzas[i].style.width = newwidth + "%";
     }
   }
@@ -486,14 +486,14 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-  // use getElementsByClassName
+  // Use getElementsByClassName
   var items = document.getElementsByClassName("mover");
   // Pull scrollTop out of for loop
   var scrollPos = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(scrollPos + (i % 5));
     // Use transform and translateX instead of style.left
-    items[i].style.transform = 'translateX(' + (items[i].basicLeft + 100 * phase) + 'px)';
+    items[i].style.transform = 'translateX(' + (items[i].basicLeft + 100 * phase - 1024) + 'px)';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.

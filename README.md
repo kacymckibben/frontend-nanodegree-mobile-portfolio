@@ -1,5 +1,30 @@
 ## Website Performance Optimization portfolio project
 
+### Instructions for opening project
+* index.html at the root folder will open the main page of the portfolio project
+* The URL I used to enter in the PageSpeed Insights page is: http://49cfce83.ngrok.io/index.html
+
+### Modifications made to optimize PageSpeed Insights for a PSI mobile score of 94 and desktop score of 95
+* Removed the font link since it didn't change anything and made a huge difference in PSI score
+* Added media="print" to the print css sheet link
+* Put style.css inline (internal CSS)
+* Moved the script tags to the bottom of the body tag
+* Made the google-analytics script tag async
+* Removed the blank lines
+* Resized pizzeria.jpg, profilepic.jpg, and mobilewebdev.jpg
+
+### Modifications made to optimize FPS in pizza.html scrolling
+* Removed some blank space lines in pizza.html
+* Added -webkit-transform and transform to mover class in style.css
+In main.js: 
+* Removed determineDx function and used percentages instead of pixels
+* Used one querySelectorAll instead of multiple in the changePizzaSizes function
+* Replaced querySelectorAll with getElementsByClassName in updatePositions
+* Pulled scrollTop out of the for loop in updatePositions so it wasn't running scrollTop for every iteration
+* Used style.transform and translateX instead of style.left since transform only triggers composite and left triggers paint, layout, and composite
+* Changed the number of pizzas from 200 to 25 in the EventListener call since we won't have that many on the page at one time
+
+
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository, inspect the code,
